@@ -5,7 +5,7 @@ import 'package:pokedex/ui/views/startup/startup_view.dart';
 @MaterialAutoRouter(
   routes: <AutoRoute>[
     // initial route is named "/"
-    MaterialRoute(page: StartupView, initial: true),
+    MaterialRoute(page: StartupView, initial: true, path: '/'),
     MaterialRoute(page: HomeView, path: '/home'),
   ],
 )
