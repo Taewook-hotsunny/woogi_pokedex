@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/app/locator.dart';
-import 'package:pokedex/ui/views/home/home_view.dart';
+import 'package:get/get.dart';
+import 'package:pokedex/controllers/bindings/authBinding.dart';
+import 'package:pokedex/utils/root.dart';
 
 void main() {
-  setupLocator();
   runApp(PokeDexApp());
 }
 
 class PokeDexApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "PokeDexApp",
-      home: HomeView(),
+    return GetMaterialApp(
+      initialBinding: AuthBinding(),
+      home: Root(),
+      theme: ThemeData.dark(),
     );
   }
 }
