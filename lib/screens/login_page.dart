@@ -34,8 +34,7 @@ class LoginPage extends GetWidget<AuthController> {
               RaisedButton(
                 child: Text("Log In"),
                 onPressed: () {
-                  controller.login(
-                      emailController.text, passwordController.text);
+                  controller.login(emailController.text, passwordController.text);
                 },
               ),
               FlatButton(

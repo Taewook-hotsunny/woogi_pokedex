@@ -9,14 +9,14 @@ import 'package:pokedex/widgets/todo_card.dart';
 
 class HomePage extends GetWidget<AuthController> {
   final TextEditingController _todoController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: GetX<UserController>(
           initState: (_) async {
-            Get.find<UserController>().user =
-            await Database().getUser(Get.find<AuthController>().user.uid);
+            Get.find<UserController>().user = await Database().getUser(Get.find<AuthController>().user.uid);
           },
           builder: (_) {
             if (_.user.name != null) {
@@ -73,8 +73,7 @@ class HomePage extends GetWidget<AuthController> {
                     icon: Icon(Icons.add),
                     onPressed: () {
                       if (_todoController.text != "") {
-                        Database()
-                            .addTodo(_todoController.text, controller.user.uid);
+                        Database().addTodo(_todoController.text, controller.user.uid);
                         _todoController.clear();
                       }
                     },
@@ -98,9 +97,7 @@ class HomePage extends GetWidget<AuthController> {
                   child: ListView.builder(
                     itemCount: todoController.todos.length,
                     itemBuilder: (_, index) {
-                      return TodoCard(
-                          uid: controller.user.uid,
-                          todo: todoController.todos[index]);
+                      return TodoCard(uid: controller.user.uid, todo: todoController.todos[index]);
                     },
                   ),
                 );

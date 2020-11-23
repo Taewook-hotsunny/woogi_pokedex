@@ -41,8 +41,7 @@ class SignUpPage extends GetWidget<AuthController> {
               FlatButton(
                 child: Text("Sign Up"),
                 onPressed: () {
-                  controller.createUser(nameController.text,
-                      emailController.text, passwordController.text);
+                  controller.createUser(nameController.text, emailController.text, passwordController.text);
                 },
               )
             ],

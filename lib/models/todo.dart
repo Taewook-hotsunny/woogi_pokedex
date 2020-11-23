@@ -19,6 +19,6 @@ class TodoModel {
     var map = documentSnapshot.data();
     content = map['content'];
     dateCreated = map["dateCreated"];
-    done =map["done"];
+    done = map["done"];
   }
 }

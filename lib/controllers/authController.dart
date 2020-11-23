@@ -18,8 +18,7 @@ class AuthController extends GetxController {
 
   void createUser(String name, String email, String password) async {
     try {
-      UserCredential _authResult = await _auth.createUserWithEmailAndPassword(
-          email: email.trim(), password: password);
+      UserCredential _authResult = await _auth.createUserWithEmailAndPassword(email: email.trim(), password: password);
       //create user in database.dart
       UserModel _user = UserModel(
         id: _authResult.user.uid,
@@ -41,10 +40,8 @@ class AuthController extends GetxController {
 
   void login(String email, String password) async {
     try {
-      UserCredential _authResult = await _auth.signInWithEmailAndPassword(
-          email: email.trim(), password: password);
-      Get.find<UserController>().user =
-      await Database().getUser(_authResult.user.uid);
+      UserCredential _authResult = await _auth.signInWithEmailAndPassword(email: email.trim(), password: password);
+      Get.find<UserController>().user = await Database().getUser(_authResult.user.uid);
     } catch (e) {
       Get.snackbar(
         "Error signing in",
